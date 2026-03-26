@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy: #0A1628;
+  --color-navy-light: #0F1D32;
+  --color-navy-dark: #060E1A;
+  --color-electric: #2563EB;
+  --color-electric-light: #3B82F6;
+  --color-teal: #0891B2;
+  --color-amber: #F59E0B;
+  --color-amber-dark: #D97706;
+  --color-white: #FFFFFF;
+  --color-gray-50: #F8FAFC;
+  --color-gray-100: #F1F5F9;
+  --color-gray-200: #E2E8F0;
+  --color-gray-300: #CBD5E1;
+  --color-gray-400: #94A3B8;
+  --color-gray-500: #64748B;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1E293B;
+  --color-text: #0F172A;
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-text);
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-400);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-500);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-electric);
+  color: white;
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-electric);
+  outline-offset: 2px;
+}
+
+/* Geometric pattern for hero backgrounds */
+.geo-pattern {
+  background-image:
+    linear-gradient(30deg, rgba(37, 99, 235, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(37, 99, 235, 0.05) 87.5%, rgba(37, 99, 235, 0.05)),
+    linear-gradient(150deg, rgba(37, 99, 235, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(37, 99, 235, 0.05) 87.5%, rgba(37, 99, 235, 0.05)),
+    linear-gradient(30deg, rgba(37, 99, 235, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(37, 99, 235, 0.05) 87.5%, rgba(37, 99, 235, 0.05)),
+    linear-gradient(150deg, rgba(37, 99, 235, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(37, 99, 235, 0.05) 87.5%, rgba(37, 99, 235, 0.05)),
+    linear-gradient(60deg, rgba(8, 145, 178, 0.06) 25%, transparent 25.5%, transparent 75%, rgba(8, 145, 178, 0.06) 75%, rgba(8, 145, 178, 0.06)),
+    linear-gradient(60deg, rgba(8, 145, 178, 0.06) 25%, transparent 25.5%, transparent 75%, rgba(8, 145, 178, 0.06) 75%, rgba(8, 145, 178, 0.06));
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+/* Grid pattern overlay */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Subtle animated gradient */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Floating animation for decorative elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(10px) rotate(-1deg); }
+  66% { transform: translateY(-5px) rotate(1deg); }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+.animate-float-reverse { animation: float-reverse 7s ease-in-out infinite; }
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+.animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
