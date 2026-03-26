@@ -40,8 +40,10 @@ export default function Footer() {
             <p className="text-gray-500 text-sm leading-relaxed mb-4">
               Our Talent Is Finding Yours
             </p>
-            <p className="text-gray-600 text-xs">
-              Toronto &bull; Mississauga &bull; Vaughan &bull; Ontario &bull; BC
+            <p className="text-gray-600 text-xs leading-relaxed">
+              Toronto &bull; Mississauga &bull; Vaughan &bull; Ontario
+              <br />
+              Vancouver &bull; Calgary &bull; Winnipeg &bull; Montreal
             </p>
           </div>
 
