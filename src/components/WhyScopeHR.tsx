@@ -1,45 +1,33 @@
 "use client";
 
-import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const stats = [
-  { value: "8+", label: "Years Serving Ontario Employers" },
-  { value: "24/7", label: "Support Availability" },
-  { value: "ON & BC", label: "Coverage Area" },
-  { value: "3 Types", label: "Temp, Perm & Temp-to-Perm" },
+  { value: "8+", label: "Years Serving Ontario", accent: true },
+  { value: "24/7", label: "Support Availability", accent: false },
+  { value: "ON & BC", label: "Coverage Area", accent: false },
+  { value: "3 Types", label: "Temp · Perm · Temp-to-Perm", accent: true },
 ];
 
 export default function WhyScopeHR() {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-white">
+    <section id="about" className="py-20 sm:py-24 bg-[#0A1628]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          {/* Left — Illustration + Text */}
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+          {/* Left — Text (60%) */}
           <ScrollReveal>
-            <div>
-              {/* Illustration */}
-              <div className="mb-10 flex justify-center lg:justify-start">
-                <Image
-                  src="/illustration-why.svg"
-                  alt="Team expertise and trust illustration"
-                  width={500}
-                  height={450}
-                  className="w-full max-w-sm"
-                />
-              </div>
-
-              <span className="inline-block px-4 py-1.5 text-sm font-semibold text-[#2563EB] bg-[#2563EB]/5 rounded-full mb-4">
+            <div className="lg:col-span-3">
+              <span className="inline-block px-4 py-1.5 text-sm font-semibold text-[#2563EB] bg-[#2563EB]/10 rounded-full mb-5">
                 Why Choose Us
               </span>
               <h2
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-8"
+                className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-6"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 Why ScopeHR
               </h2>
 
-              <div className="space-y-6 text-[#475569] leading-relaxed">
+              <div className="space-y-4 text-gray-400 leading-relaxed">
                 <p>
                   At ScopeHR, we use specialized techniques and expertise to
                   assist employers in recruiting effectively and efficiently. We
@@ -57,37 +45,23 @@ export default function WhyScopeHR() {
             </div>
           </ScrollReveal>
 
-          {/* Right — Stats */}
-          <ScrollReveal delay={0.2}>
-            <div className="grid grid-cols-2 gap-5">
-              {stats.map((stat, i) => (
+          {/* Right — Stats grid (40%) */}
+          <ScrollReveal delay={0.15}>
+            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+              {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className={`relative p-6 sm:p-8 rounded-2xl border transition-colors duration-300 ${
-                    i === 0
-                      ? "bg-[#0A1628] border-[#0A1628] text-white col-span-2 sm:col-span-1"
-                      : i === 1
-                      ? "bg-[#2563EB] border-[#2563EB] text-white"
-                      : "bg-[#F8FAFC] border-gray-100 hover:border-[#2563EB]/20"
-                  }`}
+                  className="p-5 sm:p-6 rounded-xl bg-white/[0.04] border border-white/[0.06]"
                 >
                   <div
-                    className={`text-3xl sm:text-4xl font-extrabold mb-2 ${
-                      i >= 2 ? "text-[#0F172A]" : ""
+                    className={`text-3xl sm:text-4xl font-extrabold mb-1.5 ${
+                      stat.accent ? "text-[#2563EB]" : "text-white"
                     }`}
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {stat.value}
                   </div>
-                  <div
-                    className={`text-sm font-medium ${
-                      i === 0
-                        ? "text-gray-400"
-                        : i === 1
-                        ? "text-blue-100"
-                        : "text-[#64748B]"
-                    }`}
-                  >
+                  <div className="text-xs sm:text-sm text-gray-500 font-medium">
                     {stat.label}
                   </div>
                 </div>

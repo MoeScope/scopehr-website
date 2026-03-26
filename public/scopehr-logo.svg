@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 46" fill="none">
-  <!-- SCOPE text: S, C -->
-  <text x="0" y="36" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="38" fill="#0A1628" letter-spacing="1">SC</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 46" fill="none">
+  <!-- ScopeHR Logo — white text for dark backgrounds -->
+  <!-- SC -->
+  <text x="0" y="36" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="38" fill="white" letter-spacing="1">SC</text>
   
   <!-- O as bullseye/target -->
   <g transform="translate(64.5, 6)">
@@ -14,10 +15,8 @@
   </g>
   
   <!-- PE -->
-  <text x="100" y="36" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="38" fill="#0A1628" letter-spacing="1">PE</text>
+  <text x="100" y="36" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="38" fill="white" letter-spacing="1">PE</text>
   
-  <!-- Spacer -->
-  
-  <!-- HR in electric blue, bold -->
+  <!-- HR in electric blue -->
   <text x="167" y="36" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="38" fill="#2563EB" letter-spacing="2">HR</text>
 </svg>
