@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -32,19 +33,15 @@ export default function ApplyPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A1628]/95 backdrop-blur-xl shadow-lg shadow-black/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
-            <Link href="/" className="flex items-center gap-0 shrink-0">
-              <span
-                className="text-xl sm:text-2xl font-extrabold tracking-tight text-white"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Scope
-              </span>
-              <span
-                className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#2563EB]"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                HR
-              </span>
+            <Link href="/" className="shrink-0">
+              <Image
+                src="/scopehr-logo.png"
+                alt="ScopeHR"
+                width={160}
+                height={27}
+                className="h-6 sm:h-7 w-auto"
+                priority
+              />
             </Link>
 
             <div className="hidden lg:flex items-center gap-1">
@@ -138,6 +135,17 @@ export default function ApplyPage() {
             Back to Home
           </Link>
 
+          {/* Small illustration */}
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/illustration-apply.svg"
+              alt="Job application illustration"
+              width={300}
+              height={250}
+              className="w-48 sm:w-56"
+            />
+          </div>
+
           <h1
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
@@ -174,20 +182,15 @@ export default function ApplyPage() {
       {/* Footer */}
       <footer className="bg-[#060E1A] border-t border-white/5 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-0">
-            <span
-              className="text-lg font-extrabold text-white"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Scope
-            </span>
-            <span
-              className="text-lg font-extrabold text-[#2563EB]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              HR
-            </span>
-          </div>
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/scopehr-logo.png"
+              alt="ScopeHR"
+              width={120}
+              height={20}
+              className="h-5 w-auto"
+            />
+          </Link>
           <p className="text-xs text-gray-600">
             &copy; 2026 ScopeHR. All rights reserved.
           </p>

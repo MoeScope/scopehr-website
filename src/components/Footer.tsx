@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 const quickLinks = [
@@ -27,19 +28,14 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-0 mb-4">
-              <span
-                className="text-2xl font-extrabold text-white"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Scope
-              </span>
-              <span
-                className="text-2xl font-extrabold text-[#2563EB]"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                HR
-              </span>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/scopehr-logo.png"
+                alt="ScopeHR"
+                width={140}
+                height={24}
+                className="h-6 w-auto"
+              />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed mb-4">
               Our Talent Is Finding Yours

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -15,7 +16,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0F1D32] to-[#0A1628]" />
@@ -51,70 +52,93 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div
-          className={`transition-all duration-[800ms] ease-out ${
-            mounted
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-8"
-          }`}
-        >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-[#2563EB]/20 bg-[#2563EB]/5">
-            <div className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
-            <span className="text-sm font-medium text-[#2563EB]">
-              Ontario&apos;s Trusted HR Firm
-            </span>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left - Text */}
+          <div>
+            <div
+              className={`transition-all duration-[800ms] ease-out ${
+                mounted
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+            >
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-[#2563EB]/20 bg-[#2563EB]/5">
+                <div className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
+                <span className="text-sm font-medium text-[#2563EB]">
+                  Ontario&apos;s Trusted HR Firm
+                </span>
+              </div>
+
+              {/* Headline */}
+              <h1
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Our Talent Is
+                <br />
+                <span className="bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#0891B2] bg-clip-text text-transparent">
+                  Finding Yours
+                </span>
+              </h1>
+            </div>
+
+            <p
+              className={`mt-6 text-lg sm:text-xl text-gray-400 max-w-xl leading-relaxed transition-all duration-[800ms] ease-out delay-150 ${
+                mounted
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6"
+              }`}
+            >
+              Ontario&apos;s trusted HR firm for logistics, transportation, manufacturing,
+              and skilled trades. We deliver the right people for the right
+              job&nbsp;&mdash;&nbsp;fast.
+            </p>
+
+            <div
+              className={`mt-10 flex flex-col sm:flex-row items-start gap-4 transition-all duration-[800ms] ease-out delay-300 ${
+                mounted
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6"
+              }`}
+            >
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-0.5 active:translate-y-0 text-center"
+              >
+                I Need Workers
+              </a>
+              <Link
+                href="/apply"
+                className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white border border-white/15 hover:border-white/30 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 text-center"
+              >
+                I Need a Job
+              </Link>
+            </div>
           </div>
 
-          {/* Headline */}
-          <h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight"
-            style={{ fontFamily: "var(--font-display)" }}
+          {/* Right - Illustration */}
+          <div
+            className={`hidden lg:flex items-center justify-center transition-all duration-[1000ms] ease-out delay-200 ${
+              mounted
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-12"
+            }`}
           >
-            Our Talent Is
-            <br />
-            <span className="bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#0891B2] bg-clip-text text-transparent">
-              Finding Yours
-            </span>
-          </h1>
-        </div>
-
-        <p
-          className={`mt-6 text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed transition-all duration-[800ms] ease-out delay-150 ${
-            mounted
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-6"
-          }`}
-        >
-          Ontario&apos;s trusted HR firm for logistics, transportation, manufacturing,
-          and skilled trades. We deliver the right people for the right
-          job&nbsp;&mdash;&nbsp;fast.
-        </p>
-
-        <div
-          className={`mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-[800ms] ease-out delay-300 ${
-            mounted
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-6"
-          }`}
-        >
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-0.5 active:translate-y-0"
-          >
-            I Need Workers
-          </a>
-          <Link
-            href="/apply"
-            className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white border border-white/15 hover:border-white/30 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-          >
-            I Need a Job
-          </Link>
+            <Image
+              src="/illustration-hero.svg"
+              alt="Workers, logistics, and warehousing illustration"
+              width={600}
+              height={500}
+              className="w-full max-w-lg xl:max-w-xl"
+              priority
+            />
+          </div>
         </div>
       </div>
 

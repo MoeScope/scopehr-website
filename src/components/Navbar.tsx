@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -46,19 +47,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-0 shrink-0">
-            <span
-              className="text-xl sm:text-2xl font-extrabold tracking-tight text-white"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Scope
-            </span>
-            <span
-              className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#2563EB]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              HR
-            </span>
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/scopehr-logo.png"
+              alt="ScopeHR"
+              width={160}
+              height={27}
+              className="h-6 sm:h-7 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}

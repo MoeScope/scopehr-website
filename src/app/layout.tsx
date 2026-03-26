@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  other: {
-    generator: "Perplexity Computer",
-    author: "Perplexity Computer",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/icon-192.png",
   },
 };
 
@@ -57,12 +57,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${plusJakarta.variable} h-full`}
     >
-      <head>
-        {/* Perplexity Computer Attribution */}
-        <meta name="generator" content="Perplexity Computer" />
-        <meta property="og:see_also" content="https://www.perplexity.ai/computer" />
-        <link rel="author" href="https://www.perplexity.ai/computer" />
-      </head>
+      <head />
       <body
         className="min-h-full flex flex-col antialiased"
         style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
