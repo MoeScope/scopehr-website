@@ -133,18 +133,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-600 text-center sm:text-left">
-            &copy; 2026 ScopeHR (16166326 Canada Inc.). All rights reserved.
+        <div className="mt-12 pt-8 border-t border-white/5 flex items-center justify-center">
+          <p className="text-xs text-gray-600 text-center">
+            &copy; 2026 ScopeHR. All rights reserved.
           </p>
-          <a
-            href="https://www.perplexity.ai/computer"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-gray-600 hover:text-gray-400 transition-colors duration-200"
-          >
-            Created with Perplexity Computer
-          </a>
         </div>
       </div>
     </footer>

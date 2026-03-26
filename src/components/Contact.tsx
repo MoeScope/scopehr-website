@@ -4,6 +4,16 @@ import { useState } from "react";
 import { Phone, Mail, MapPin, Send, CheckCircle } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
+// ──────────────────────────────────────────────
+// TODO: Replace with your actual Formspree endpoint ID.
+// 1. Go to https://formspree.io and create a free account
+// 2. Create a new form → set recipient to contact@scopeHR.ca
+// 3. In form Settings → enable reCAPTCHA under "Spam Filtering"
+// 4. Honeypot is already handled in the code below (_gotcha field)
+// 5. Paste your endpoint ID here (e.g. "xrgvkpbn")
+// ──────────────────────────────────────────────
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORMSPREE_ID";
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -16,9 +26,7 @@ export default function Contact() {
     const formData = new FormData(form);
 
     try {
-      // TODO: Replace YOUR_FORMSPREE_ID with your actual Formspree endpoint ID.
-      // Create one free at https://formspree.io — point it to contact@scopeHR.ca
-      const response = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         body: formData,
         headers: {
@@ -39,7 +47,6 @@ export default function Contact() {
         window.location.href = `mailto:contact@scopeHR.ca?subject=Inquiry from ${name}&body=Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ACompany: ${company}%0A%0A${message}`;
       }
     } catch {
-      // Fallback: open mailto
       window.location.href = `mailto:contact@scopeHR.ca?subject=Website Inquiry`;
     } finally {
       setSubmitting(false);
@@ -165,6 +172,18 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Honeypot field — hidden from real users, catches bots */}
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    style={{ display: "none" }}
+                  />
+
+                  {/* Formspree subject line */}
+                  <input type="hidden" name="_subject" value="New Contact Form Submission — ScopeHR" />
+
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-1.5">
                       Name <span className="text-red-400">*</span>

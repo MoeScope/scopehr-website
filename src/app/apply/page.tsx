@@ -1,69 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, Send, CheckCircle, Menu, X } from "lucide-react";
-
-const positionTypes = [
-  "AZ Driver",
-  "DZ Driver",
-  "310T Mechanic",
-  "Electrician",
-  "Millwright",
-  "Welder",
-  "Forklift Operator",
-  "Warehouse Worker",
-  "General Labour",
-  "Other",
-];
-
-const experienceLevels = [
-  "Less than 1 year",
-  "1-3 years",
-  "3-5 years",
-  "5-10 years",
-  "10+ years",
-];
+import { ArrowLeft, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export default function ApplyPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      // TODO: Replace YOUR_FORMSPREE_ID with your actual Formspree endpoint ID.
-      // Create one free at https://formspree.io — point it to contact@scopeHR.ca
-      const response = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-        form.reset();
-      } else {
-        window.location.href = `mailto:contact@scopeHR.ca?subject=Job Application`;
+  // Load Tally embed script
+  useEffect(() => {
+    const existingScript = document.querySelector(
+      'script[src="https://tally.so/widgets/embed.js"]'
+    );
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://tally.so/widgets/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    } else {
+      // If script already loaded, trigger Tally to load iframes
+      if (typeof (window as any).Tally !== "undefined") {
+        (window as any).Tally.loadEmbeds();
       }
-    } catch {
-      window.location.href = `mailto:contact@scopeHR.ca?subject=Job Application`;
-    } finally {
-      setSubmitting(false);
     }
-  };
-
-  const inputClass =
-    "w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-[#0F172A] placeholder-gray-400 focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] transition-colors outline-none";
-  const labelClass = "block text-sm font-medium text-[#334155] mb-1.5";
+  }, []);
 
   return (
     <>
@@ -194,253 +155,19 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      {/* Application Form */}
+      {/* Tally Form Embed */}
       <section className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          {submitted ? (
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-12 text-center">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-green-50 text-green-500 mx-auto mb-6">
-                <CheckCircle size={36} />
-              </div>
-              <h2
-                className="text-2xl font-bold text-[#0F172A] mb-3"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Application Submitted
-              </h2>
-              <p className="text-[#64748B] mb-8">
-                Thanks for applying! Our team will review your application and
-                reach out within 1-2 business days.
-              </p>
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-colors"
-              >
-                <ArrowLeft size={16} />
-                Back to Home
-              </Link>
-            </div>
-          ) : (
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-10">
-              <h2
-                className="text-xl font-bold text-[#0F172A] mb-6"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Application Form
-              </h2>
-
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Full Name */}
-                <div>
-                  <label htmlFor="fullName" className={labelClass}>
-                    Full Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="fullName"
-                    name="fullName"
-                    required
-                    className={inputClass}
-                    placeholder="Your full name"
-                  />
-                </div>
-
-                {/* Email & Phone */}
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="applyEmail" className={labelClass}>
-                      Email <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="applyEmail"
-                      name="email"
-                      required
-                      className={inputClass}
-                      placeholder="you@email.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="applyPhone" className={labelClass}>
-                      Phone <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      id="applyPhone"
-                      name="phone"
-                      required
-                      className={inputClass}
-                      placeholder="(416) 000-0000"
-                    />
-                  </div>
-                </div>
-
-                {/* City */}
-                <div>
-                  <label htmlFor="city" className={labelClass}>
-                    City / Location
-                  </label>
-                  <input
-                    type="text"
-                    id="city"
-                    name="city"
-                    className={inputClass}
-                    placeholder="e.g. Toronto, Brampton, Vaughan"
-                  />
-                </div>
-
-                {/* Position & Experience */}
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="position" className={labelClass}>
-                      Position Type
-                    </label>
-                    <select
-                      id="position"
-                      name="position"
-                      className={inputClass}
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Select a position
-                      </option>
-                      {positionTypes.map((pos) => (
-                        <option key={pos} value={pos}>
-                          {pos}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="experience" className={labelClass}>
-                      Years of Experience
-                    </label>
-                    <select
-                      id="experience"
-                      name="experience"
-                      className={inputClass}
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Select experience
-                      </option>
-                      {experienceLevels.map((exp) => (
-                        <option key={exp} value={exp}>
-                          {exp}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Radio: Driver's Licence */}
-                <div>
-                  <span className={labelClass}>
-                    Do you have a valid driver&apos;s licence?
-                  </span>
-                  <div className="flex items-center gap-6 mt-2">
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="driversLicence"
-                        value="Yes"
-                        className="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]"
-                      />
-                      <span className="text-sm text-[#334155]">Yes</span>
-                    </label>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="driversLicence"
-                        value="No"
-                        className="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]"
-                      />
-                      <span className="text-sm text-[#334155]">No</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* Radio: Work Authorization */}
-                <div>
-                  <span className={labelClass}>
-                    Are you legally authorized to work in Canada?
-                  </span>
-                  <div className="flex items-center gap-6 mt-2">
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="workAuthorization"
-                        value="Yes"
-                        className="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]"
-                      />
-                      <span className="text-sm text-[#334155]">Yes</span>
-                    </label>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="workAuthorization"
-                        value="No"
-                        className="w-4 h-4 text-[#2563EB] border-gray-300 focus:ring-[#2563EB]"
-                      />
-                      <span className="text-sm text-[#334155]">No</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* Resume Upload */}
-                <div>
-                  <label htmlFor="resume" className={labelClass}>
-                    Resume Upload
-                  </label>
-                  <input
-                    type="file"
-                    id="resume"
-                    name="resume"
-                    accept=".pdf,.doc,.docx"
-                    className="w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#2563EB]/5 file:text-[#2563EB] hover:file:bg-[#2563EB]/10 file:cursor-pointer cursor-pointer"
-                  />
-                  <p className="text-xs text-gray-400 mt-1">
-                    PDF, DOC, or DOCX (max 10MB)
-                  </p>
-                </div>
-
-                {/* Notes */}
-                <div>
-                  <label htmlFor="notes" className={labelClass}>
-                    Additional Notes
-                  </label>
-                  <textarea
-                    id="notes"
-                    name="notes"
-                    rows={3}
-                    className={inputClass + " resize-none"}
-                    placeholder="Anything else you'd like us to know..."
-                  />
-                </div>
-
-                {/* Submit */}
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-4 text-base font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-60 disabled:cursor-not-allowed rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25"
-                >
-                  {submitting ? (
-                    "Submitting..."
-                  ) : (
-                    <>
-                      Submit Application
-                      <Send size={18} />
-                    </>
-                  )}
-                </button>
-
-                <p className="text-xs text-gray-400 text-center">
-                  Your information is kept confidential and only used for
-                  recruitment purposes.
-                </p>
-              </form>
-            </div>
-          )}
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8">
+            <iframe
+              data-tally-src="[PASTE YOUR TALLY LINK HERE]"
+              width="100%"
+              height="800"
+              frameBorder="0"
+              title="ScopeHR Job Application"
+              style={{ border: "none" }}
+            />
+          </div>
         </div>
       </section>
 
@@ -462,16 +189,8 @@ export default function ApplyPage() {
             </span>
           </div>
           <p className="text-xs text-gray-600">
-            &copy; 2026 ScopeHR (16166326 Canada Inc.). All rights reserved.
+            &copy; 2026 ScopeHR. All rights reserved.
           </p>
-          <a
-            href="https://www.perplexity.ai/computer"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-gray-600 hover:text-gray-400 transition-colors"
-          >
-            Created with Perplexity Computer
-          </a>
         </div>
       </footer>
     </>
