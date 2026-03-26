@@ -12,26 +12,31 @@ const stats = [
 
 export default function WhyScopeHR() {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-[#0A1628] relative overflow-hidden">
+    <section id="about" className="py-16 bg-[#0A1628] relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 grid-pattern opacity-20" />
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#2563EB]/5 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
-          {/* Left — Text */}
-          <ScrollReveal>
-            <div>
-              <span className="inline-block px-4 py-1.5 text-sm font-semibold text-[#2563EB] bg-[#2563EB]/10 rounded-full mb-6">
-                Why Choose Us
-              </span>
-              <h2
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-8"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Why ScopeHR
-              </h2>
+        {/* Heading — full width above columns */}
+        <ScrollReveal>
+          <div className="mb-10">
+            <span className="inline-block px-4 py-1.5 text-sm font-semibold text-[#2563EB] bg-[#2563EB]/10 rounded-full mb-5">
+              Why Choose Us
+            </span>
+            <h2
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Why ScopeHR
+            </h2>
+          </div>
+        </ScrollReveal>
 
+        <div className="grid lg:grid-cols-5 gap-10 items-start">
+          {/* Left — Text (3/5) */}
+          <ScrollReveal>
+            <div className="lg:col-span-3">
               <div className="space-y-6 text-gray-400 leading-relaxed text-lg">
                 <p>
                   At ScopeHR, we use specialized techniques and expertise to
@@ -50,36 +55,36 @@ export default function WhyScopeHR() {
             </div>
           </ScrollReveal>
 
-          {/* Right — Illustration + Stats */}
+          {/* Right — Shield + Stats (2/5) */}
           <ScrollReveal delay={0.2}>
-            <div>
-              {/* Shield / Checkmark Illustration */}
-              <div className="flex justify-center mb-10">
+            <div className="lg:col-span-2">
+              {/* Shield Illustration */}
+              <div className="flex justify-center mb-5">
                 <Image
                   src="/illustration-why.svg"
                   alt="Trust and reliability"
                   width={400}
                   height={360}
-                  className="w-full max-w-xs"
+                  className="w-40"
                 />
               </div>
 
               {/* 2x2 Stats Grid */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="p-6 rounded-xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.06] transition-colors duration-300"
+                    className="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.06] transition-colors duration-300"
                   >
                     <div
-                      className={`text-3xl sm:text-4xl font-extrabold mb-2 ${
+                      className={`text-2xl sm:text-3xl font-extrabold mb-1 ${
                         stat.accent ? "text-[#2563EB]" : "text-white"
                       }`}
                       style={{ fontFamily: "var(--font-display)" }}
                     >
                       {stat.value}
                     </div>
-                    <div className="text-sm text-gray-500 font-medium">
+                    <div className="text-xs text-gray-500 font-medium">
                       {stat.label}
                     </div>
                   </div>

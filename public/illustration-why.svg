@@ -4,7 +4,7 @@
   <!-- Shield outline -->
   <path 
     d="M200 40 L310 85 L310 190 C310 260 260 310 200 335 C140 310 90 260 90 190 L90 85 Z" 
-    stroke="#0A1628" 
+    stroke="#3B82F6" 
     stroke-width="2.5" 
     stroke-linejoin="round"
     fill="none"
@@ -14,14 +14,14 @@
   <path 
     d="M200 60 L295 100 L295 185 C295 248 250 292 200 315 C150 292 105 248 105 185 L105 100 Z" 
     fill="#2563EB" 
-    opacity="0.04"
+    opacity="0.08"
   />
   
   <!-- Checkmark -->
   <path 
     d="M155 185 L185 215 L250 145" 
     stroke="#2563EB" 
-    stroke-width="4" 
+    stroke-width="5" 
     stroke-linecap="round" 
     stroke-linejoin="round"
     fill="none"
@@ -31,8 +31,8 @@
   <circle cx="200" cy="72" r="4" fill="#2563EB" opacity="0.15"/>
   
   <!-- Subtle accent lines extending from shield -->
-  <line x1="70" y1="130" x2="50" y2="130" stroke="#0A1628" stroke-width="1" opacity="0.08" stroke-linecap="round"/>
-  <line x1="330" y1="130" x2="350" y2="130" stroke="#0A1628" stroke-width="1" opacity="0.08" stroke-linecap="round"/>
-  <line x1="65" y1="145" x2="40" y2="145" stroke="#0A1628" stroke-width="1" opacity="0.05" stroke-linecap="round"/>
-  <line x1="335" y1="145" x2="360" y2="145" stroke="#0A1628" stroke-width="1" opacity="0.05" stroke-linecap="round"/>
+  <line x1="70" y1="130" x2="50" y2="130" stroke="#3B82F6" stroke-width="1" opacity="0.08" stroke-linecap="round"/>
+  <line x1="330" y1="130" x2="350" y2="130" stroke="#3B82F6" stroke-width="1" opacity="0.08" stroke-linecap="round"/>
+  <line x1="65" y1="145" x2="40" y2="145" stroke="#3B82F6" stroke-width="1" opacity="0.05" stroke-linecap="round"/>
+  <line x1="335" y1="145" x2="360" y2="145" stroke="#3B82F6" stroke-width="1" opacity="0.05" stroke-linecap="round"/>
 </svg>
