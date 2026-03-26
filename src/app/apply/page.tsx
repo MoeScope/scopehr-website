@@ -35,11 +35,11 @@ export default function ApplyPage() {
           <div className="flex items-center justify-between h-16 sm:h-20">
             <Link href="/" className="shrink-0">
               <Image
-                src="/scopehr-logo.png"
+                src="/scopehr-logo.svg"
                 alt="ScopeHR"
-                width={160}
-                height={27}
-                className="h-6 sm:h-7 w-auto"
+                width={200}
+                height={34}
+                className="h-8 sm:h-9 w-auto"
                 priority
               />
             </Link>
@@ -184,7 +184,7 @@ export default function ApplyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link href="/" className="shrink-0">
             <Image
-              src="/scopehr-logo.png"
+              src="/scopehr-logo.svg"
               alt="ScopeHR"
               width={120}
               height={20}

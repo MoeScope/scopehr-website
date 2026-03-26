@@ -49,11 +49,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="shrink-0">
             <Image
-              src="/scopehr-logo.png"
+              src="/scopehr-logo.svg"
               alt="ScopeHR"
-              width={160}
-              height={27}
-              className="h-6 sm:h-7 w-auto"
+              width={200}
+              height={34}
+              className="h-8 sm:h-9 w-auto"
               priority
             />
           </Link>

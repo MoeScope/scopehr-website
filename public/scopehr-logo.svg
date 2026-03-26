@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 46" fill="none">
+  <!-- SCOPE text: S, C -->
+  <text x="0" y="36" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="38" fill="#0A1628" letter-spacing="1">SC</text>
+  
+  <!-- O as bullseye/target -->
+  <g transform="translate(64.5, 6)">
+    <circle cx="15" cy="15" r="14" stroke="#3B82F6" stroke-width="2.8" fill="none"/>
+    <circle cx="15" cy="15" r="6.5" stroke="#3B82F6" stroke-width="2" fill="none"/>
+    <circle cx="15" cy="15" r="2.2" fill="#2563EB"/>
+    <line x1="15" y1="0.5" x2="15" y2="8" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="15" y1="22" x2="15" y2="29.5" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="0.5" y1="15" x2="8" y2="15" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="22" y1="15" x2="29.5" y2="15" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+  
+  <!-- PE -->
+  <text x="100" y="36" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="38" fill="#0A1628" letter-spacing="1">PE</text>
+  
+  <!-- Spacer -->
+  
+  <!-- HR in electric blue, bold -->
+  <text x="167" y="36" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="38" fill="#2563EB" letter-spacing="2">HR</text>
+</svg>

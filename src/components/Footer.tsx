@@ -30,18 +30,18 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/scopehr-logo.png"
+                src="/scopehr-logo.svg"
                 alt="ScopeHR"
-                width={140}
-                height={24}
-                className="h-6 w-auto"
+                width={160}
+                height={28}
+                className="h-7 w-auto"
               />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed mb-4">
               Our Talent Is Finding Yours
             </p>
             <p className="text-gray-600 text-xs">
-              Toronto &bull; Brampton &bull; Vaughan &bull; Ontario &bull; BC
+              Toronto &bull; Mississauga &bull; Vaughan &bull; Ontario &bull; BC
             </p>
           </div>
 
