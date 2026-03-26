@@ -52,7 +52,7 @@ export default function WhyScopeHR() {
           </ScrollReveal>
 
           {/* Right — Shield + Stats */}
-          <ScrollReveal delay={0.2}>
+          <ScrollReveal>
             <div>
               {/* Shield Illustration */}
               <div className="flex justify-center mb-6">
