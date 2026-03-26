@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 const stats = [
@@ -13,12 +12,10 @@ const stats = [
 export default function WhyScopeHR() {
   return (
     <section id="about" className="py-20 sm:py-24 bg-[#0A1628] relative overflow-hidden">
-      {/* Subtle background pattern */}
       <div className="absolute inset-0 grid-pattern opacity-20" />
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#2563EB]/5 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading — full width above columns */}
         <ScrollReveal>
           <span className="inline-block px-4 py-1.5 text-sm font-semibold text-[#2563EB] bg-[#2563EB]/10 rounded-full mb-5">
             Why Choose Us
@@ -51,26 +48,24 @@ export default function WhyScopeHR() {
             </div>
           </ScrollReveal>
 
-          {/* Right — Shield + Stats */}
+          {/* Right — Stats with shield watermark behind */}
           <ScrollReveal>
-            <div>
-              {/* Shield Illustration */}
-              <div className="flex justify-center mb-6">
-                <Image
-                  src="/illustration-why.svg"
-                  alt="Trust and reliability"
-                  width={400}
-                  height={360}
-                  className="w-48"
-                />
+            <div className="relative">
+              {/* Shield watermark */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="40 30 320 310" fill="none" className="w-48 h-48 opacity-[0.07]">
+                  <path d="M200 40 L310 85 L310 190 C310 260 260 310 200 335 C140 310 90 260 90 190 L90 85 Z" stroke="#3B82F6" strokeWidth="2.5" strokeLinejoin="round" fill="none"/>
+                  <path d="M200 60 L295 100 L295 185 C295 248 250 292 200 315 C150 292 105 248 105 185 L105 100 Z" fill="#2563EB" opacity="0.5"/>
+                  <path d="M155 185 L185 215 L250 145" stroke="#2563EB" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                </svg>
               </div>
 
               {/* 2x2 Stats Grid */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="relative grid grid-cols-2 gap-4">
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="p-5 rounded-xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.06] transition-colors duration-300"
+                    className="p-5 rounded-xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.06] transition-colors duration-300 backdrop-blur-sm"
                   >
                     <div
                       className={`text-3xl sm:text-4xl font-extrabold mb-1.5 ${
