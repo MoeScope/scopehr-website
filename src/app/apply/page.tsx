@@ -160,7 +160,7 @@ export default function ApplyPage() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8">
             <iframe
-              data-tally-src="[PASTE YOUR TALLY LINK HERE]"
+              data-tally-src="https://tally.so/r/68RrOe"
               width="100%"
               height="800"
               frameBorder="0"

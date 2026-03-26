@@ -12,7 +12,7 @@ import ScrollReveal from "./ScrollReveal";
 // 4. Honeypot is already handled in the code below (_gotcha field)
 // 5. Paste your endpoint ID here (e.g. "xrgvkpbn")
 // ──────────────────────────────────────────────
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORMSPREE_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzvowjo";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
